@@ -1,4 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://*:4000");
+builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
 builder.Services.AddRazorPages();

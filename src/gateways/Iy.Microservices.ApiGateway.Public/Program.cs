@@ -1,4 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://*:5001");
+builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
 

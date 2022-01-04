@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Iy.Microservices.Auth.Api.Controllers;
+namespace Iy.Microservices.Auth.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    [HttpGet(Name = "ping")]
+    [HttpGet("ping")]
     public string Index()
     {
         return "Auth api works!";

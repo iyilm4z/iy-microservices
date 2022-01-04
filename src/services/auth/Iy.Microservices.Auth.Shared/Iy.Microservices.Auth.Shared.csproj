@@ -2,8 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>Iy.Microservices.Auth</RootNamespace>
         <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\shared\Iy.Microservices.Core\Iy.Microservices.Core.csproj"/>
+    </ItemGroup>
 
 </Project>

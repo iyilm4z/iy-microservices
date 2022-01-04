@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Iy.Microservices.Polls.Api.Controllers;
+namespace Iy.Microservices.Polls.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class PollController : ControllerBase
 {
-    [HttpGet(Name = "ping")]
+    [HttpGet("ping")]
     public string Index()
     {
         return "Pool api works!";

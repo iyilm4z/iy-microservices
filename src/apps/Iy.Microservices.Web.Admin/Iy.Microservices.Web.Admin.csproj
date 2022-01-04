@@ -4,11 +4,21 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..\..</DockerfileContext>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.1"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.1" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.1" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\services\auth\Iy.Microservices.Auth.Shared\Iy.Microservices.Auth.Shared.csproj" />
+      <ProjectReference Include="..\..\services\forums\Iy.Microservices.Forums.Shared\Iy.Microservices.Forums.Shared.csproj" />
+      <ProjectReference Include="..\..\services\news\Iy.Microservices.News.Shared\Iy.Microservices.News.Shared.csproj" />
+      <ProjectReference Include="..\..\services\polls\Iy.Microservices.Polls.Shared\Iy.Microservices.Polls.Shared.csproj" />
     </ItemGroup>
 
 </Project>

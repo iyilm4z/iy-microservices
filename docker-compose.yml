@@ -1,0 +1,91 @@
+version: '3.4'
+services:
+  iy.microservices.apigateway.admin:
+    image: ${DOCKER_REGISTRY-}admin-apigateway
+    build:
+      context: .
+      dockerfile: src/gateways/Iy.Microservices.ApiGateway.Admin/Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - net_gateway
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    # depents_on:
+    #   - iy.microservices.auth
+    #   - iy.microservices.forums
+    #   - iy.microservices.news
+    #   - iy.microservices.polls
+  iy.microservices.apigateway.public:
+    image: ${DOCKER_REGISTRY-}public-apigateway
+    build:
+      context: .
+      dockerfile: src/gateways/Iy.Microservices.ApiGateway.Public/Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - net_gateway
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    # depents_on:
+    #   - iy.microservices.auth
+    #   - iy.microservices.forums
+    #   - iy.microservices.news
+    #   - iy.microservices.polls
+  iy.microservices.auth:
+    image: ${DOCKER_REGISTRY-}auth-service
+    build:
+      context: .
+      dockerfile: src/services/auth/Iy.Microservices.Auth.Api/Dockerfile
+    ports:
+      - "6000:6000"
+    networks:
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  iy.microservices.forums:
+    image: ${DOCKER_REGISTRY-}forums-service
+    build:
+      context: .
+      dockerfile: src/services/forums/Iy.Microservices.Forums.Api/Dockerfile
+    ports:
+      - "6001:6001"
+    networks:
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  iy.microservices.news:
+    image: ${DOCKER_REGISTRY-}news-service
+    build:
+      context: .
+      dockerfile: src/services/news/Iy.Microservices.News.Api/Dockerfile
+    ports:
+      - "6002:6002"
+    networks:
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  iy.microservices.polls:
+    image: ${DOCKER_REGISTRY-}polls-service
+    build:
+      context: .
+      dockerfile: src/services/polls/Iy.Microservices.Polls.Api/Dockerfile
+    ports:
+      - "6003:6003"
+    networks:
+      - net_microservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+networks:
+  net_gateway:
+    driver: bridge
+    external: true
+  net_microservice:
+    driver: bridge
+    internal: true
+  net_client:
+    driver: bridge
+    external: true

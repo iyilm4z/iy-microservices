@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Iy.Microservices.News.Api.Controllers;
+namespace Iy.Microservices.News.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class NewsController : ControllerBase
 {
-    [HttpGet(Name = "ping")]
+    [HttpGet("ping")]
     public string Index()
     {
         return "News api works!";
